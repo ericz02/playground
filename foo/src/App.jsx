@@ -1,8 +1,10 @@
+import AxiosPlayground from './components/AxiosPlayground';
+
 const App = () => {
 
   return (
     <div>
-      main branch
+      <AxiosPlayground />
     </div>
   )
 }
