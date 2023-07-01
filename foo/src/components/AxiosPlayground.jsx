@@ -10,9 +10,18 @@ const AxiosPlayground = () => {
   const [joke, setJoke] = useState("(Joke Here)")
 
   const getJoke = () => {
-    Axios.get("https://official-joke-api.appspot.com/random_joke").then((response) => {
-      setJoke(response.data.setup + "\n" + response.data.punchline);
-    })
+
+    // The easier method using axios
+    // Axios.get("https://official-joke-api.appspot.com/random_joke").then((response) => {
+    //   setJoke(response.data.setup + " ... " + response.data.punchline)
+    // })
+
+    // This is the other method that is built in JavaScript
+    fetch("https://official-joke-api.appspot.com/random_joke")
+     .then((response) => response.json())
+      .then((data) => {
+        setJoke(data.setup + " ... " + data.punchline)
+        })
   }
   
   return (
